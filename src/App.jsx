@@ -4,6 +4,8 @@ import './App.css'
 import Causes from './pages/Causes.jsx'
 import Shop from './pages/Shop.jsx'
 import Events from './pages/Events.jsx'
+import Gallery from './pages/Gallery.jsx'
+import Blog  from './pages/Blog.jsx'
 
 function App() {
 
@@ -13,6 +15,8 @@ function App() {
     <Route path='/causes' element={<Causes/ >}/>
     <Route path='/events' element={<Events/>}/>
     <Route path='/shop' element={<Shop/>}/>
+    <Route path='/gallery' element={<Gallery/>}/>
+    <Route path='/blog' element={<Blog/>}/>
     </Routes>
   )
 }

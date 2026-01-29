@@ -105,7 +105,7 @@ export default function EventsSection() {
         </div>
 
         {/* ================= SIDEBAR ================= */}
-        <aside className="space-y-8">
+     <aside className="space-y-8">
 
         <div className="bg-white/70 backdrop-blur p-4 rounded-xl shadow-sm">
             <div className="flex items-center bg-gray-100 px-4 py-2 rounded-full">
@@ -133,7 +133,7 @@ export default function EventsSection() {
             <SidebarItem text="December 2014 (6)" />
             <SidebarItem text="October 2014 (8)" />
         </SidebarBox>
-    </aside>
+     </aside>
     </div>
 </section>
   );

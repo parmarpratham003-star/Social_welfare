@@ -14,7 +14,7 @@ const products = [
     title: "Boys Blue Hoodie",
     price: "$65.00",
     image:
-      "https://images.unsplash.com/photo-1607345366928-199ea26cfe3e?w=600&q=80",
+      "https://images.unsplash.com/photo-1542060748-10c28b62716f?w=600&q=80",
     rating: 5,
   },
   {
@@ -22,7 +22,7 @@ const products = [
     title: "Boys Casual Wear",
     price: "$55.00",
     image:
-      "https://images.unsplash.com/photo-1596870230751-ebdfce98ec42?w=600&q=80",
+      "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=600&q=80  ",
     rating: 4,
   },
   {
@@ -30,7 +30,7 @@ const products = [
     title: "Boys Street Outfit",
     price: "$70.00",
     image:
-      "https://images.unsplash.com/photo-1542060748-10c28b62716f?w=600&q=80",
+      "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&q=80",
     rating: 3,
   },
   {
@@ -38,7 +38,7 @@ const products = [
     title: "Boys Printed T-Shirt",
     price: "$40.00",
     image:
-      "https://images.unsplash.com/photo-1602810316498-ab67cf68c8e1?w=600&q=80",
+      "https://images.unsplash.com/photo-1588731247530-4076fc99173e?w=600&q=80",
     rating: 4,
   },
   {
@@ -46,10 +46,12 @@ const products = [
     title: "Boys Winter Hoodie",
     price: "$75.00",
     image:
-      "https://images.unsplash.com/photo-1607345366928-199ea26cfe3e?w=600&q=80",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=600&q=80",
     rating: 5,
   },
-];
+]
+
+
 
 export default function ShopSection() {
   return (
