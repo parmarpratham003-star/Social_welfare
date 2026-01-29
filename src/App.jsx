@@ -6,7 +6,8 @@ import Shop from './pages/Shop.jsx'
 import Events from './pages/Events.jsx'
 import Gallery from './pages/Gallery.jsx'
 import Blog  from './pages/Blog.jsx'
-
+import Contact from './pages/Contact.jsx'
+import Pages from './pages/Pages.jsx'
 function App() {
 
   return (
@@ -17,6 +18,8 @@ function App() {
     <Route path='/shop' element={<Shop/>}/>
     <Route path='/gallery' element={<Gallery/>}/>
     <Route path='/blog' element={<Blog/>}/>
+    <Route path='/contact' element={<Contact/>}/>
+    <Route path='/pages' element={<Pages/>}/>
     </Routes>
   )
 }

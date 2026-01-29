@@ -22,7 +22,6 @@ const posts = [
   },
 ];
 
-/* ================= MAIN COMPONENT ================= */
 export default function BlogSection() {
   return (
     <>
@@ -31,26 +30,34 @@ export default function BlogSection() {
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-4 gap-12">
 
           {/* ================= LEFT BLOG ================= */}
-          <div className="lg:col-span-3 space-y-20">
-            {posts.map((post) => (
+          <div className="lg:col-span-3 space-y-24">
+            {posts.map((post, i) => (
               <article
                 key={post.id}
-                className="bg-white rounded-xl shadow-sm overflow-hidden border"
+                className="group bg-white rounded-2xl overflow-hidden
+                           shadow-sm border border-gray-100
+                           transition-all duration-500
+                           hover:-translate-y-2 hover:shadow-xl
+                           animate-[fadeUp_0.8s_ease-out]"
+                style={{ animationDelay: `${i * 150}ms` }}
               >
-                {/* Image */}
-                <div className="overflow-hidden">
+                {/* IMAGE */}
+                <div className="relative overflow-hidden">
                   <img
                     src={post.img}
                     alt={post.title}
                     className="w-full h-[420px] object-cover
                                transition-transform duration-700
-                               hover:scale-105"
+                               group-hover:scale-110"
                   />
+                  <div className="absolute inset-0 bg-black/10
+                                  opacity-0 group-hover:opacity-100 transition" />
                 </div>
 
-                {/* Content */}
-                <div className="p-8">
-                  <h2 className="text-2xl font-semibold text-gray-900">
+                {/* CONTENT */}
+                <div className="p-10">
+                  <h2 className="text-2xl font-serif text-gray-900
+                                 group-hover:text-yellow-500 transition">
                     {post.title}
                   </h2>
 
@@ -62,21 +69,17 @@ export default function BlogSection() {
                   <p className="mt-6 text-gray-600 leading-relaxed">
                     Nolore magna aliqua. Ut enim ad minim veniam, quis nostrud
                     exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat. Duis aute irure dolor in reprehenderit in
-                    voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                    consequat. Duis aute irure dolor in reprehenderit.
                   </p>
 
                   <button
-                    className="mt-6 inline-flex items-center gap-3
-                               bg-yellow-400 px-7 py-3 text-sm
-                               font-semibold rounded-full
-                               hover:bg-yellow-500 transition"
+                    className="mt-8 inline-flex items-center gap-3
+                               bg-yellow-400 px-8 py-3 text-sm font-semibold
+                               rounded-full hover:bg-yellow-500 transition"
                   >
                     READ MORE
-                    <span
-                      className="w-7 h-7 bg-black text-white rounded-full
-                                 flex items-center justify-center"
-                    >
+                    <span className="w-7 h-7 bg-black text-white rounded-full
+                                     flex items-center justify-center">
                       →
                     </span>
                   </button>
@@ -89,7 +92,7 @@ export default function BlogSection() {
           <aside className="space-y-10 lg:sticky lg:top-24 h-fit">
 
             {/* Search */}
-            <div className="bg-white rounded-lg shadow-sm p-4 flex items-center gap-2">
+            <div className="bg-white rounded-xl shadow-sm p-4 flex items-center gap-2">
               <input
                 placeholder="Search here..."
                 className="w-full outline-none text-sm bg-transparent"
@@ -97,7 +100,6 @@ export default function BlogSection() {
               <Search size={18} className="text-gray-400" />
             </div>
 
-            {/* Categories */}
             <SidebarBlock title="Categories">
               <SidebarItem text="All (52)" />
               <SidebarItem text="Food (11)" />
@@ -106,7 +108,6 @@ export default function BlogSection() {
               <SidebarItem text="Education (52)" />
             </SidebarBlock>
 
-            {/* Recent Posts */}
             <SidebarBlock title="Recent Post">
               <RecentPost
                 img="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=200&q=80"
@@ -122,7 +123,6 @@ export default function BlogSection() {
               />
             </SidebarBlock>
 
-            {/* Archives */}
             <SidebarBlock title="Archives">
               <SidebarItem text="March 2015 (4)" />
               <SidebarItem text="January 2015 (5)" />
@@ -130,7 +130,6 @@ export default function BlogSection() {
               <SidebarItem text="October 2014 (8)" />
             </SidebarBlock>
 
-            {/* Image Gallery */}
             <SidebarBlock title="Image Gallery">
               <div className="grid grid-cols-3 gap-2">
                 {[
@@ -144,9 +143,9 @@ export default function BlogSection() {
                   <img
                     key={i}
                     src={`${img}?w=200&q=80`}
+                    className="w-full h-20 object-cover rounded-lg
+                               hover:scale-105 transition"
                     alt=""
-                    className="w-full h-20 object-cover rounded-md
-                               hover:opacity-80 transition"
                   />
                 ))}
               </div>
@@ -155,8 +154,21 @@ export default function BlogSection() {
         </div>
       </section>
 
-      {/* ================= QUOTE SECTION ================= */}
       <QuoteSection />
+
+      {/* ================= ANIMATION ================= */}
+      <style>{`
+        @keyframes fadeUp {
+          from {
+            opacity: 0;
+            transform: translateY(40px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      `}</style>
     </>
   );
 }
@@ -164,30 +176,24 @@ export default function BlogSection() {
 /* ================= QUOTE ================= */
 function QuoteSection() {
   return (
-    <section className="bg-gray-100 py-16">
-      <div className="max-w-4xl mx-auto px-6 text-center">
+    <section className="bg-gray-100 py-20">
+      <div className="max-w-4xl mx-auto px-6 text-center animate-[fadeUp_1s_ease-out]">
         <p className="text-gray-700 italic text-lg md:text-xl leading-relaxed">
           “ Mullamco laboris nisi ut aliquip ex ea commodo consequat.
           Duost aute irure dolor in reprehenderit in voluptate velit esse
           cillum dolore eu fugiat nulla pariatur. ”
         </p>
-
-        <p className="mt-8 text-gray-800 font-semibold">
-          – Mother Teresa
-        </p>
+        <p className="mt-8 text-gray-800 font-semibold">– Mother Teresa</p>
       </div>
     </section>
   );
 }
 
-/* ================= SIDEBAR COMPONENTS ================= */
-
+/* ================= SIDEBAR ================= */
 function SidebarBlock({ title, children }) {
   return (
-    <div className="bg-white rounded-lg shadow-sm p-5">
-      <h4 className="font-semibold uppercase text-sm mb-4">
-        {title}
-      </h4>
+    <div className="bg-white rounded-xl shadow-sm p-6">
+      <h4 className="font-semibold uppercase text-sm mb-4">{title}</h4>
       <div className="space-y-3">{children}</div>
     </div>
   );
@@ -206,11 +212,7 @@ function SidebarItem({ text }) {
 function RecentPost({ img, title }) {
   return (
     <div className="flex gap-3 items-center">
-      <img
-        src={img}
-        alt=""
-        className="w-14 h-14 object-cover rounded-md"
-      />
+      <img src={img} alt="" className="w-14 h-14 object-cover rounded-lg" />
       <div>
         <p className="text-sm hover:text-yellow-500 cursor-pointer transition">
           {title}
