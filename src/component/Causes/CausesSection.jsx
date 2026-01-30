@@ -8,7 +8,7 @@ const causes = [
     title: "Donate For Child Education",
     category: "Education",
     image:
-      "https://images.unsplash.com/photo-1509099836639-18ba02c35e2c",
+      "https://images.unsplash.com/photo-1519682337058-a94d519337bc",
     raised: 53458,
     goal: 87609,
   },
@@ -44,7 +44,7 @@ const causes = [
     title: "Help For Handicapped Child",
     category: "Disease",
     image:
-      "https://images.unsplash.com/photo-1509099836639-18ba02c35e2c",
+      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee",
     raised: 70458,
     goal: 87609,
   },

@@ -21,7 +21,7 @@ const donors = [
 
 const LatestDonators = () => {
   return (
-    <section className="py-20 md:py-24 bg-white">
+    <section className=" md:py-10 bg-white">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
 
         {/* ================= HEADING ================= */}
@@ -38,7 +38,7 @@ const LatestDonators = () => {
         </div>
 
         {/* ================= GRID ================= */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="py-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
 
           {/* ===== DONOR CARDS ===== */}
           {donors.map((donor, i) => (

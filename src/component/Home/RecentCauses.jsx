@@ -36,11 +36,7 @@ function ProgressCounter({ value }) {
     });
   }, [value]);
 
-  return (
-    <motion.span className="text-sm font-semibold">
-      {rounded}
-    </motion.span>
-  );
+  return <motion.span className="text-xs font-semibold">{rounded}</motion.span>;
 }
 
 /* ================= MAIN COMPONENT ================= */
@@ -57,14 +53,14 @@ function RecentCauses() {
       title: "Donate For Drinking Water",
     },
     {
-      img: "https://images.unsplash.com/photo-1509099836639-18ba1795216d",
+      img: "https://images.unsplash.com/photo-1596870230751-ebdfce98ec42",
       progress: 70,
       title: "Donate For Homeless People",
     },
   ];
 
   return (
-    <section className="pt-12 pb-24 bg-white">
+    <section className="pb-28 bg-gradient-to-b from-white to-gray-50">
       <motion.div
         className="max-w-7xl mx-auto px-6 md:px-12"
         variants={containerVariant}
@@ -73,108 +69,88 @@ function RecentCauses() {
         viewport={{ once: true, margin: "-80px" }}
       >
         {/* ================= HEADING ================= */}
-        <motion.div
-          variants={cardVariant}
-          className="text-center mb-16"
-        >
+        <motion.div variants={cardVariant} className="text-center mb-20">
           <h2 className="text-3xl md:text-4xl font-semibold text-black">
             Recent <span className="font-bold">Causes</span>
           </h2>
-          <p className="text-gray-500 mt-3">
+          <p className="mt-3 italic text-sm md:text-base text-gray-500">
             Our charity helps those people who have no hope
           </p>
           <div className="w-16 h-[3px] bg-yellow-400 mx-auto mt-4"></div>
         </motion.div>
 
         {/* ================= CARDS ================= */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-14">
           {causes.map((item, index) => (
             <motion.div
               key={index}
               variants={cardVariant}
-              whileHover={{ y: -10 }}
+              whileHover={{
+                y: -6,
+                boxShadow: "0px 30px 60px rgba(0,0,0,0.15)",
+              }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
               className="
-                bg-white
-                rounded-[28px]
+                relative
+                bg-white/70 backdrop-blur
+                rounded-[48px]
                 border border-gray-200
-                shadow-md hover:shadow-2xl
-                transition-all duration-300
-                overflow-hidden
+                pt-24 pb-12 px-8
+                text-center
               "
             >
-              {/* IMAGE + PROGRESS */}
-              <div className="relative pb-10">
-                <motion.img
-                  src={item.img}
-                  alt=""
-                  className="w-full h-56 object-cover rounded-t-[28px]"
-                  whileHover={{ scale: 1.06 }}
-                  transition={{ duration: 0.8, ease: "easeOut" }}
-                />
-
-                {/* PROGRESS BAR */}
-                <div className="absolute bottom-0 left-0 w-full h-3 bg-gray-200">
-                  <motion.div
-                    initial={{ width: "0%" }}
-                    whileInView={{ width: `${item.progress}%` }}
-                    transition={{ duration: 1.5, ease: "easeOut" }}
-                    viewport={{ once: true }}
-                    className="h-full bg-yellow-400"
+              {/* FLOATING IMAGE */}
+              <div className="absolute -top-16 left-1/2 -translate-x-1/2">
+                <div className="relative w-36 h-36 rounded-full overflow-hidden shadow-xl">
+                  <motion.img
+                    src={item.img}
+                    alt=""
+                    className="w-full h-full object-cover"
+                    whileHover={{ scale: 1.15 }}
+                    transition={{ duration: 1.2, ease: "easeOut" }}
                   />
+
+                  {/* PROGRESS RING */}
+                  <div className="absolute inset-0 flex items-end justify-center pb-2">
+                    <div className="bg-white/90 px-3 py-1 rounded-full text-[11px] font-semibold shadow">
+                      <ProgressCounter value={item.progress} />
+                    </div>
+                  </div>
                 </div>
-
-                {/* PERCENTAGE BADGE */}
-                <motion.div
-                  initial={{ scale: 0.7, opacity: 0, rotate: 45 }}
-                  whileInView={{ scale: 1, opacity: 1, rotate: 45 }}
-                  transition={{ delay: 1.1, duration: 0.5, ease: "easeOut" }}
-                  viewport={{ once: true }}
-                  className="absolute left-1/2 bottom-[-30px]
-                            -translate-x-1/2
-                            w-14 h-14
-                            bg-white border-4 border-yellow-400
-                            shadow-lg
-                            flex items-center justify-center"
-                          >
-                            <div className="-rotate-45 text-sm font-semibold">
-                              <ProgressCounter value={item.progress} />
-                            </div>
-                          </motion.div>
-
               </div>
 
               {/* CONTENT */}
-              <div className="pt-12 pb-10 px-8 text-center">
-                <p className="text-sm text-gray-500 mb-3">
-                  Donation:{" "}
-                  <span className="font-semibold">$3,458</span> / $87,609
-                </p>
+              <p className="text-sm text-gray-500 mb-3">
+                Donation: <span className="font-semibold">$3,458</span> / $87,609
+              </p>
 
-                <h3 className="font-semibold text-lg mb-4 text-black">
-                  {item.title}
-                </h3>
+              <h3 className="font-semibold text-lg mb-4 text-black">
+                {item.title}
+              </h3>
 
-                <div className="w-12 h-[2px] bg-gray-300 mx-auto mb-5"></div>
+              <div className="w-10 h-[2px] bg-gray-300 mx-auto mb-5"></div>
 
-                <p className="text-gray-500 text-sm mb-8 leading-relaxed">
-                  Totam rem aperiam, eaque ipsa quae ab illo inventore
-                  veritatis et quasi architecto beatae vitae dicta sunt.
-                </p>
+              <p className="text-gray-500 text-sm mb-8 leading-relaxed">
+                Totam rem aperiam, eaque ipsa quae ab illo inventore
+                veritatis et quasi architecto beatae vitae dicta sunt.
+              </p>
 
-                <motion.button
-                  whileHover={{ scale: 1.08 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="
-                    bg-yellow-400 text-black
-                    px-10 py-3 font-semibold
-                    rounded-full
-                    hover:bg-yellow-500
-                    transition
-                  "
-                >
-                  DONATE NOW
-                </motion.button>
-              </div>
+              <motion.button
+                whileHover={{
+                  scale: 1.08,
+                  boxShadow: "0px 12px 30px rgba(234,179,8,0.45)",
+                }}
+                whileTap={{ scale: 0.95 }}
+                className="
+                  bg-yellow-400 text-black
+                  px-8 py-3 font-semibold
+                  rounded-full
+                  hover:bg-yellow-500
+                  transition
+                "
+              >
+                DONATE NOW
+              </motion.button>
             </motion.div>
           ))}
         </div>

@@ -17,7 +17,7 @@ const blogs = [
 
 const FreshFromBlog = () => {
   return (
-    <section className="py-20 md:py-28 bg-white overflow-hidden">
+    <section className=" bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
 
         {/* ================= HEADING ================= */}
