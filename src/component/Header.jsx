@@ -7,7 +7,7 @@ function Header() {
 
   return (
     <>
-      {/* ================= HEADER ================= */}
+      {/* ================= FIXED HEADER ================= */}
       <header className="fixed top-0 left-0 w-full z-50 bg-white shadow-sm">
 
         {/* ===== TOP BAR (DESKTOP ONLY) ===== */}
@@ -24,15 +24,15 @@ function Header() {
         </div>
 
         {/* ===== MIDDLE HEADER ===== */}
-        <div className="border-b bg-white">
-          <div className="max-w-7xl mx-auto flex justify-between items-center px-6 lg:px-12 py-4">
+        <div className=" bg-white">
+          <div className="max-w-7xl mx-auto flex justify-between items-center px-4 sm:px-6 lg:px-12 py-3 sm:py-4">
 
             {/* LOGO */}
             <Link to="/" className="flex items-center gap-3">
               <img
                 src="/image/image.png"
                 alt="Social Welfare"
-                className="h-12 w-auto"
+                className="h-10 sm:h-12 w-auto"
               />
             </Link>
 
@@ -55,51 +55,51 @@ function Header() {
               {open ? <X size={28} /> : <Menu size={28} />}
             </button>
           </div>
+
+          {/* ===== MOBILE MENU ===== */}
+          {open && (
+            <div className="md:hidden bg-yellow-400 px-6 py-6 space-y-5 font-semibold text-black">
+              <Link to="/" onClick={() => setOpen(false)} className="block hover:text-white">HOME</Link>
+              <Link to="/causes" onClick={() => setOpen(false)} className="block hover:text-white">CAUSES</Link>
+              <Link to="/events" onClick={() => setOpen(false)} className="block hover:text-white">EVENTS</Link>
+              <Link to="/shop" onClick={() => setOpen(false)} className="block hover:text-white">SHOP</Link>
+              <Link to="/gallery" onClick={() => setOpen(false)} className="block hover:text-white">GALLERY</Link>
+              <Link to="/blog" onClick={() => setOpen(false)} className="block hover:text-white">BLOG</Link>
+              <Link to="/pages" onClick={() => setOpen(false)} className="block hover:text-white">PAGES</Link>
+              <Link to="/contact" onClick={() => setOpen(false)} className="block hover:text-white">CONTACT</Link>
+
+              <Link
+                to="/donate"
+                onClick={() => setOpen(false)}
+                className="mt-6 w-full flex items-center justify-center 
+                           gap-2 bg-[#2f2f2f] text-white py-3 font-semibold"
+              >
+                <Heart size={18} className="text-yellow-400" />
+                DONATE NOW
+              </Link>
+            </div>
+          )}
         </div>
-
-        {/* ===== DESKTOP NAV ===== */}
-        <nav className="bg-yellow-400 hidden md:block">
-          <div className="max-w-7xl mx-auto px-6 lg:px-12">
-            <ul className="flex gap-10 py-4 font-semibold text-black text-sm">
-              <li><Link to="/" className="hover:text-white">HOME</Link></li>
-              <li><Link to="/causes" className="hover:text-white">CAUSES</Link></li>
-              <li><Link to="/events" className="hover:text-white">EVENTS</Link></li>
-              <li><Link to="/shop" className="hover:text-white">SHOP</Link></li>
-              <li><Link to="/gallery" className="hover:text-white">GALLERY</Link></li>
-              <li><Link to="/blog" className="hover:text-white">BLOG</Link></li>
-              <li><Link to="/pages" className="hover:text-white">PAGES</Link></li>
-              <li><Link to="/contact" className="hover:text-white">CONTACT</Link></li>
-            </ul>
-          </div>
-        </nav>
-
-        {/* ===== MOBILE MENU ===== */}
-        {open && (
-          <div className="md:hidden bg-yellow-400 px-6 py-6 space-y-5 font-semibold text-black">
-            <Link to="/" onClick={() => setOpen(false)} className="block hover:text-white">HOME</Link>
-            <Link to="/causes" onClick={() => setOpen(false)} className="block hover:text-white">CAUSES</Link>
-            <Link to="/events" onClick={() => setOpen(false)} className="block hover:text-white">EVENTS</Link>
-            <Link to="/shop" onClick={() => setOpen(false)} className="block hover:text-white">SHOP</Link>
-            <Link to="/gallery" onClick={() => setOpen(false)} className="block hover:text-white">GALLERY</Link>
-            <Link to="/blog" onClick={() => setOpen(false)} className="block hover:text-white">BLOG</Link>
-            <Link to="/pages" onClick={() => setOpen(false)} className="block hover:text-white">PAGES</Link>
-            <Link to="/contact" onClick={() => setOpen(false)} className="block hover:text-white">CONTACT</Link>
-
-            <Link
-              to="/donate"
-              onClick={() => setOpen(false)}
-              className="mt-6 w-full flex items-center justify-center 
-                         gap-2 bg-[#2f2f2f] text-white py-3 font-semibold"
-            >
-              <Heart size={18} className="text-yellow-400" />
-              DONATE NOW
-            </Link>
-          </div>
-        )}
       </header>
 
-      {/* ===== SPACER FOR FIXED HEADER ===== */}
-      <div className="h-[110px] md:h-[170px]"></div>
+      {/* ===== SPACER (MATCHES FIXED HEADER HEIGHT) ===== */}
+      <div className="h-[64px] sm:h-[72px] md:h-[120px]" />
+
+      {/* ================= DESKTOP NAV (SCROLLS NORMALLY) ================= */}
+      <nav className="bg-yellow-400 hidden md:block">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <ul className="flex gap-10 py-4 font-semibold text-black text-sm">
+            <li><Link to="/" className="hover:text-white">HOME</Link></li>
+            <li><Link to="/causes" className="hover:text-white">CAUSES</Link></li>
+            <li><Link to="/events" className="hover:text-white">EVENTS</Link></li>
+            <li><Link to="/shop" className="hover:text-white">SHOP</Link></li>
+            <li><Link to="/gallery" className="hover:text-white">GALLERY</Link></li>
+            <li><Link to="/blog" className="hover:text-white">BLOG</Link></li>
+            <li><Link to="/pages" className="hover:text-white">PAGES</Link></li>
+            <li><Link to="/contact" className="hover:text-white">CONTACT</Link></li>
+          </ul>
+        </div>
+      </nav>
     </>
   );
 }

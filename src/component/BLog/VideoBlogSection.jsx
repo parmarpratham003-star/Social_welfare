@@ -105,31 +105,7 @@ export default function VideoBlogSection() {
           </div>
         </article>
 
-        {/* ================= PAGINATION ================= */}
-        <div className="flex items-center justify-between mt-14 text-sm text-gray-500">
-          <button className="hover:text-black transition">← Previous</button>
-
-          <div className="flex gap-2">
-            {[1, 2, 3, 4, 5].map((n) => (
-              <button
-                key={n}
-                className={`
-                  w-9 h-9 rounded-full flex items-center justify-center
-                  transition
-                  ${
-                    n === 1
-                      ? "bg-yellow-400 text-black font-semibold"
-                      : "hover:bg-gray-200"
-                  }
-                `}
-              >
-                {n}
-              </button>
-            ))}
-          </div>
-
-          <button className="hover:text-black transition">Next →</button>
-        </div>
+        
       </div>
     </section>
   );

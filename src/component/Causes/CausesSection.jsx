@@ -174,35 +174,7 @@ export default function CausesSection() {
         </div>
       </div>
       {/* PAGINATION */}
-<div className="mt-16 text-sm">
-  {/* TOP: PAGE NUMBERS */}
-  <div className="flex justify-center mb-4">
-    {[1, 2, 3, 4, 5].map((n) => (
-      <button
-        key={n}
-        className={`px-3 pb-1 transition
-          ${
-            n === 1
-              ? "text-yellow-500 border-b-2 border-yellow-500 font-semibold"
-              : "text-gray-600 hover:text-yellow-500"
-          }`}
-      >
-        {n}
-      </button>
-    ))}
-  </div>
 
-  {/* BOTTOM: PREVIOUS / NEXT */}
-  <div className="flex justify-between px-4">
-    <button className="flex items-center gap-2 text-gray-500 hover:text-yellow-500 transition">
-      ← PREVIOUS
-    </button>
-
-    <button className="flex items-center gap-2 text-gray-500 hover:text-yellow-500 transition">
-      NEXT →
-    </button>
-  </div>
-</div>
 
     </section>
   );

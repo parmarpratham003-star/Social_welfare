@@ -18,7 +18,6 @@ const slides = [
   },
 ];
 
-/* ===== IMAGE ANIMATION ===== */
 const slideVariant = {
   hidden: { opacity: 0, x: 80, scale: 1.05 },
   visible: {
@@ -44,7 +43,7 @@ function HeroSlider() {
   return (
     <>
       {/* ================= HERO ================= */}
-      <section className="relative h-[95vh] w-full">
+      <section className="relative h-[90vh] sm:h-[95vh] w-full">
         <AnimatePresence>
           <motion.div
             key={index}
@@ -55,27 +54,26 @@ function HeroSlider() {
             className="absolute inset-0 bg-cover bg-center"
             style={{ backgroundImage: `url(${slides[index].image})` }}
           >
-            {/* overlay */}
-            <div className="absolute inset-0 bg-black/30" />
+            <div className="absolute inset-0 bg-black/40" />
 
             {/* hero text */}
             <div className="relative z-10 h-full flex items-center">
-              <div className="max-w-7xl mx-auto px-12 w-full">
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 w-full">
                 <div className="text-white max-w-xl">
-                  <h1 className="text-5xl font-light leading-tight">
+                  <h1 className="text-3xl sm:text-4xl lg:text-5xl font-light leading-tight">
                     {slides[index].title}{" "}
                     <span className="font-bold">{slides[index].bold}</span>
                     <br />
                     {slides[index].subtitle}
                   </h1>
 
-                  <div className="w-16 h-[3px] bg-[#f0cd2f] my-6"></div>
+                  <div className="w-12 sm:w-16 h-[3px] bg-[#f0cd2f] my-4 sm:my-6"></div>
 
-                  <p className="italic text-white/90 mb-8">
+                  <p className="italic text-sm sm:text-base text-white/90 mb-6 sm:mb-8">
                     {slides[index].text}
                   </p>
 
-                  <button className="border border-white px-8 py-3 text-sm font-semibold tracking-wide hover:bg-[#f0cd2f] hover:border-[#f0cd2f] transition">
+                  <button className="border border-white px-6 sm:px-8 py-3 text-xs sm:text-sm font-semibold tracking-wide hover:bg-[#f0cd2f] hover:border-[#f0cd2f] transition">
                     LEARN MORE →
                   </button>
                 </div>
@@ -84,29 +82,29 @@ function HeroSlider() {
           </motion.div>
         </AnimatePresence>
 
-        {/* arrows */}
-        <button className="absolute left-6 top-1/2 -translate-y-1/2 bg-black/70 text-[#f0cd2f] w-10 h-10 flex items-center justify-center z-20">
+        {/* arrows (hidden on mobile) */}
+        <button className="hidden sm:flex absolute left-6 top-1/2 -translate-y-1/2 bg-black/70 text-[#f0cd2f] w-10 h-10 items-center justify-center z-20">
           ❮
         </button>
-        <button className="absolute right-6 top-1/2 -translate-y-1/2 bg-black/70 text-[#f0cd2f] w-10 h-10 flex items-center justify-center z-20">
+        <button className="hidden sm:flex absolute right-6 top-1/2 -translate-y-1/2 bg-black/70 text-[#f0cd2f] w-10 h-10 items-center justify-center z-20">
           ❯
         </button>
 
-        {/* ================= BOTTOM BOXES (VISIBLE & OVERLAY) ================= */}
-        <div className="absolute left-0 -bottom-40 w-full z-40">
-          <div className="max-w-7xl mx-auto px-12">
+        {/* ================= BOTTOM BOXES ================= */}
+        <div className="absolute left-0 -bottom-32 sm:-bottom-40 w-full z-40">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
             <div className="grid grid-cols-12 bg-white shadow-2xl">
 
               {/* LEFT BOX */}
-              <div className="col-span-12 lg:col-span-5 px-10 py-10 border-b-[6px] border-[#f0cd2f]">
+              <div className="col-span-12 lg:col-span-5 px-6 sm:px-10 py-8 sm:py-10 border-b-[6px] border-[#f0cd2f]">
                 <h3 className="text-xs uppercase font-semibold tracking-widest mb-6">
                   Upcoming Events
                 </h3>
 
-                <div className="flex gap-6">
+                <div className="flex flex-col sm:flex-row gap-6">
                   <img
                     src="https://images.unsplash.com/photo-1529107386315-e1a2ed48a620"
-                    className="w-32 h-32 object-cover"
+                    className="w-full sm:w-32 h-40 sm:h-32 object-cover"
                     alt=""
                   />
 
@@ -122,7 +120,7 @@ function HeroSlider() {
                       Conference Hall, 12 Marc Street, Africa
                     </p>
 
-                    <div className="flex gap-3">
+                    <div className="flex flex-wrap gap-3">
                       {["DAYS", "HOURS", "MINUTES", "SECONDS"].map((t) => (
                         <div key={t} className="text-center">
                           <div className="bg-[#f0cd2f] text-white px-4 py-3 font-bold text-sm">
@@ -137,9 +135,9 @@ function HeroSlider() {
               </div>
 
               {/* RIGHT BOX */}
-              <div className="col-span-12 lg:col-span-7 px-12 py-12">
+              <div className="col-span-12 lg:col-span-7 px-6 sm:px-12 py-8 sm:py-12">
                 <div className="flex justify-between items-center mb-6">
-                  <h3 className="text-4xl font-semibold">$25</h3>
+                  <h3 className="text-3xl sm:text-4xl font-semibold">$25</h3>
                   <div className="text-xs tracking-widest uppercase">
                     <span className="text-[#f0cd2f] font-semibold">
                       Monthly Donation
@@ -148,11 +146,11 @@ function HeroSlider() {
                   </div>
                 </div>
 
-                <p className="text-sm text-gray-500 mb-10 max-w-md">
+                <p className="text-sm text-gray-500 mb-8 sm:mb-10 max-w-md">
                   Could pay for a day out for 4 young carers in need of a break.
                 </p>
 
-                <div className="relative mb-10">
+                <div className="relative mb-8 sm:mb-10">
                   <div className="h-2 bg-gray-200"></div>
                   <div className="absolute left-[32%] top-1/2 -translate-y-1/2 w-2 h-6 bg-[#f0cd2f]" />
 
@@ -176,8 +174,8 @@ function HeroSlider() {
         </div>
       </section>
 
-      {/* spacer so next section doesn't overlap */}
-      <div className="h-72"></div>
+      {/* spacer */}
+      <div className="h-64 sm:h-72"></div>
     </>
   );
 }
