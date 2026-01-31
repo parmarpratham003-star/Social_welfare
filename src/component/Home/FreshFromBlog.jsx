@@ -84,7 +84,7 @@ const FreshFromBlog = () => {
                 style={{ animationDelay: `${i * 200}ms` }}
               >
                 {/* Image */}
-                <div className="w-24 h-24 md:w-28 md:h-28 rounded-xl
+                <div className="w-24 h-24 md:w-28 md:h-50 rounded-xl
                                 overflow-hidden flex-shrink-0">
                   <img
                     src={blog.img}

@@ -34,7 +34,7 @@ function ProgressCounter({ value }) {
       duration: 1.5,
       ease: "easeOut",
     });
-  }, [value]);
+  }, );
 
   return <motion.span className="text-xs font-semibold">{rounded}</motion.span>;
 }
@@ -53,7 +53,7 @@ function RecentCauses() {
       title: "Donate For Drinking Water",
     },
     {
-      img: "https://images.unsplash.com/photo-1596870230751-ebdfce98ec42",
+      img:  "https://images.unsplash.com/photo-1542810634-71277d95dcbb?w=800&q=80",
       progress: 70,
       title: "Donate For Homeless People",
     },
@@ -80,7 +80,7 @@ function RecentCauses() {
         </motion.div>
 
         {/* ================= CARDS ================= */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-14">
+        <div className="py-5 grid grid-cols-1 md:grid-cols-3 gap-14">
           {causes.map((item, index) => (
             <motion.div
               key={index}
@@ -93,7 +93,7 @@ function RecentCauses() {
               className="
                 relative
                 bg-white/70 backdrop-blur
-                rounded-[48px]
+                
                 border border-gray-200
                 pt-24 pb-12 px-8
                 text-center
@@ -101,7 +101,7 @@ function RecentCauses() {
             >
               {/* FLOATING IMAGE */}
               <div className="absolute -top-16 left-1/2 -translate-x-1/2">
-                <div className="relative w-36 h-36 rounded-full overflow-hidden shadow-xl">
+                <div className="relative w-80 h-36  overflow-hidden shadow-xl">
                   <motion.img
                     src={item.img}
                     alt=""
@@ -109,13 +109,16 @@ function RecentCauses() {
                     whileHover={{ scale: 1.15 }}
                     transition={{ duration: 1.2, ease: "easeOut" }}
                   />
-
-                  {/* PROGRESS RING */}
-                  <div className="absolute inset-0 flex items-end justify-center pb-2">
-                    <div className="bg-white/90 px-3 py-1 rounded-full text-[11px] font-semibold shadow">
-                      <ProgressCounter value={item.progress} />
-                    </div>
+                  {/* PROCESSING RING */}
+                  <div className="absolute top-2 right-3">
+                    <div className="bg-white/90 px-2 py-1 
+                                  text-[11px] font-semibold
+                                  shadow-lg
+                                 "
+                    >
+                    <ProgressCounter value={item.progress} />
                   </div>
+                </div>
                 </div>
               </div>
 
@@ -144,7 +147,7 @@ function RecentCauses() {
                 className="
                   bg-yellow-400 text-black
                   px-8 py-3 font-semibold
-                  rounded-full
+                  
                   hover:bg-yellow-500
                   transition
                 "
